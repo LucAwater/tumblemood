@@ -19,10 +19,11 @@
   "layout/_html",
   "layout/_main",
   "layout/_header",
-  "layout/_footer",
+  "layout/_footer";
   
-  "layout/navigation/_menu.scss",
-  "layout/navigation/_nav.scss";
+// MODULES
+@import
+  "modules/_grid";
   
 // STATE
 @import
