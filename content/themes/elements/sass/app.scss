@@ -23,7 +23,8 @@
   
 // MODULES
 @import
-  "modules/_grid";
+  "modules/_grid",
+  "modules/_pace";
   
 // STATE
 @import
@@ -32,5 +33,5 @@
   "states/_section-image",
   "states/_typography",
   "states/_stretch",
-  "states/_resizing",
+  "states/_loading",
   "states/_fullwidth";

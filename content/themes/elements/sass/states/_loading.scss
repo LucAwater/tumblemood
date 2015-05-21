@@ -1,0 +1,7 @@
+body main{
+  @include show( 1.5s );
+}
+
+body.is-loading main{
+  @include hide( 1.5s );
+}

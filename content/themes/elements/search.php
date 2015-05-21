@@ -6,7 +6,7 @@ echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
   $apikey = "OZvn5lZZAMoGneN6EOO4zC6SU8DAt8U3V1bhOgfXKwTi07zOKU";
   $tumblr = get_search_query() . '.tumblr.com';
   
-  $apidata = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$tumblr/posts?api_key=$apikey") );
+  $apidata = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$tumblr/posts?api_key=$apikey&limit=50") );
   
   $mypostsdata = $apidata->response->posts;
   $myposts = array();

@@ -1,3 +1,12 @@
+// Animations
+@mixin animation($value) {
+     -moz-animation: $value;
+       -o-animation: $value;
+      -ms-animation: $value;
+  -webkit-animation: $value;
+          animation: $value;
+}
+
 // Transformations
 @mixin transform($transforms) {
      -moz-transform: $transforms;
