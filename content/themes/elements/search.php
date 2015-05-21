@@ -9,7 +9,6 @@ echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
   $apidata = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$tumblr/posts?api_key=$apikey&limit=50") );
   
   $mypostsdata = $apidata->response->posts;
-  $myposts = array();
   
   foreach($mypostsdata as $postdata) {
     $post_image = $postdata->photos[0]->original_size->url;

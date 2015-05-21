@@ -23,7 +23,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body class="is-loading">
+<body <?php body_class('is-loading'); ?>>
   
   <!-- Main content -->
   <main role="main">

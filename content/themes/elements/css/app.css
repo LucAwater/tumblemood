@@ -1400,6 +1400,15 @@ footer {
     padding: 0 .5em;
     display: inline-block; }
 
+body.home main {
+  padding: 0; }
+  body.home main div {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }
+
 ul {
   padding-top: 1.875rem !important; }
   ul li {
