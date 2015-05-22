@@ -9,6 +9,22 @@ body.home{
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
+      
+      > p{
+        right: 0;
+        bottom: 15px;
+        left: 0;
+        position: absolute;
+        
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+        
+        a{
+          font-size: 14px;
+        }
+      }
     }
   }
 }

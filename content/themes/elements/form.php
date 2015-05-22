@@ -1,29 +1,47 @@
 <?php get_header(); ?>
 
 <?php
+
 // Get featured blog
-$featured_blog = get_field( 'featured_current', 'option' );
+$blogs = get_field( 'blogs', 'option' );
+
+$features = array();
+
+if( have_rows('blogs', 'option') ):
+  while( have_rows('blogs', 'option') ): the_row();
+    $blog = get_sub_field('blog', 'option');
+    array_push($features, $blog);
+  endwhile;
+endif;
+
+// Get random blog from array
+$max = count($features);
+$random = rand(0, $max - 1);
 
 // Authenticate via API Key
-$apikey = "OZvn5lZZAMoGneN6EOO4zC6SU8DAt8U3V1bhOgfXKwTi07zOKU";
-$tumblr = $featured_blog . '.tumblr.com';
+$f_apikey = "OZvn5lZZAMoGneN6EOO4zC6SU8DAt8U3V1bhOgfXKwTi07zOKU";
+$f_tumblr = $features[$random] . '.tumblr.com';
 
-$apidata = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$tumblr/posts?api_key=$apikey&limit=10") );
+$f_data_info = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$f_tumblr/info?api_key=$f_apikey") );
+$f_title = $f_data_info->response->blog->title;
 
-$mypostsdata = $apidata->response->posts;
-$posts = array();
+$f_data_posts = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$f_tumblr/posts?api_key=$f_apikey&limit=1") );
+$f_posts = $f_data_posts->response->posts;
 
-foreach($mypostsdata as $postdata) {
-  $post_image = $postdata->photos[0]->original_size->url;
-  $post_width = $postdata->photos[0]->original_size->width;
-  $post_height = $postdata->photos[0]->original_size->height;
+foreach($f_posts as $f_post) {
+  $f_post_image = $f_post->photos[0]->original_size->url;
+  $f_post_width = $f_post->photos[0]->original_size->width;
+  $f_post_height = $f_post->photos[0]->original_size->height;
 }
 ?>
 
-<div style="background-image:url('<?php echo $post_image; ?>');">
+<div style="background-image:url('<?php echo $f_post_image; ?>');">
   <form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
-    <input type="search" placeholder="blogname" value="" name="s" title="" />
+    <h1>Tumblemood</h1>
+    <input type="search" placeholder='your blogname, example: "Luc Awater" or "lucawater"' value="" name="s" title="" autocomplete="off" />
   </form>
+  
+  <p class="is_white">Featured blog: <a class="is_white" href="http://<?php echo $f_tumblr; ?>" target="_blank"><?php echo $f_title; ?></a></p>
 </div>
 
 <?php get_footer(); ?>

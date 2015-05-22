@@ -1,19 +1,26 @@
 <?php
 get_header();
 
-echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
-  // Authenticate via API Key
-  $apikey = "OZvn5lZZAMoGneN6EOO4zC6SU8DAt8U3V1bhOgfXKwTi07zOKU";
-  $tumblr = get_search_query() . '.tumblr.com';
+// Authenticate via API Key
+$apikey = "OZvn5lZZAMoGneN6EOO4zC6SU8DAt8U3V1bhOgfXKwTi07zOKU";
+
+$input .= get_search_query();
+$input = strtolower( str_replace(' ', '', $input) );
+
+$tumblr = $input . '.tumblr.com';
+
+$apidata = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$tumblr/posts?api_key=$apikey&limit=50") );
+
+$postsdata = $apidata->response->posts;
+
+if($postsdata):
   
-  $apidata = json_decode( file_get_contents("http://api.tumblr.com/v2/blog/$tumblr/posts?api_key=$apikey&limit=50") );
+  echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
   
-  $mypostsdata = $apidata->response->posts;
-  
-  foreach($mypostsdata as $postdata) {
-    $post_image = $postdata->photos[0]->original_size->url;
-    $post_width = $postdata->photos[0]->original_size->width;
-    $post_height = $postdata->photos[0]->original_size->height;
+  foreach($postsdata as $post) {
+    $post_image = $post->photos[0]->original_size->url;
+    $post_width = $post->photos[0]->original_size->width;
+    $post_height = $post->photos[0]->original_size->height;
     ?>
     
     <li>
@@ -22,7 +29,14 @@ echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
     
     <?php
   }
-echo '</ul>';
-
+  
+  echo '</ul>';
+  
+else:
+  echo 'nope';
+  include_once('form.php');
+  
+endif;
+  
 get_footer();
 ?>

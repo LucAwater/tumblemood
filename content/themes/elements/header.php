@@ -19,6 +19,10 @@
   <!-- LINK tags -->
   <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/app.css">
   
+  <!-- Fonts from typekit -->
+  <script src="//use.typekit.net/owz3wqy.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  
   <!-- WP_HEAD() -->
   <?php wp_head(); ?>
 </head>
