@@ -4,7 +4,17 @@ get_header();
 if( have_posts() ):
   while( have_posts() ): the_post();
     
+    // Open featured blog div
+    include_once('includes/featured-start.php');
+    
+    // Page title
+    echo '<h1>Tumblemood</h1>';
+    
+    // Get form
     include_once( 'form.php' );
+    
+    // Close featured blog div
+    include_once('includes/featured-end.php');
     
   endwhile;
   

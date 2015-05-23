@@ -33,8 +33,19 @@ if($postsdata):
   echo '</ul>';
   
 else:
-  echo 'nope';
-  include_once('form.php');
+  
+  // Open featured blog div
+  include_once('includes/featured-start.php');
+  
+  // Page title
+  echo '<h1>Blog not found</h1>';
+  echo '<p class="is_white margin-b15">It appears that "' . $tumblr . '" does not exist, try again below!</p>';
+  
+  // Get form
+  include_once( 'form.php' );
+  
+  // Close featured blog div
+  include_once('includes/featured-end.php');
   
 endif;
   

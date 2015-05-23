@@ -1,20 +1,4 @@
 form{
-  @include flex;
-  @include flex-direction( column );
-  @include justify-content( center );
-  
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  
-  width: 600px;
-  height: 100%;
-  margin: auto;
-  
-  text-align: center;
-  
   input{
     @extend p;
     
