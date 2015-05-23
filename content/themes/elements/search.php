@@ -18,6 +18,7 @@ if($postsdata):
   echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
   
   foreach($postsdata as $post) {
+    echo $post->url;
     $post_image = $post->photos[0]->original_size->url;
     $post_width = $post->photos[0]->original_size->width;
     $post_height = $post->photos[0]->original_size->height;

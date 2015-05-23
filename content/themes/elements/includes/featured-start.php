@@ -31,5 +31,5 @@ foreach($f_posts as $f_post) {
   $f_post_height = $f_post->photos[0]->original_size->height;
 }
 ?>
-<div style="background-image:url('<?php echo $f_post_image; ?>');">
+<div class="featured" style="background-image:url('<?php echo $f_post_image; ?>');">
   <div class="inner">
