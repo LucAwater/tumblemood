@@ -26,14 +26,11 @@
   "modules/_grid",
   "modules/_pace",
   "modules/_form",
-  "modules/_featured";
+  "modules/_featured",
+  "modules/_notices";
   
 // STATE
 @import
   "states/_global",
-  "states/_section",
-  "states/_section-image",
   "states/_typography",
-  "states/_stretch",
-  "states/_loading",
-  "states/_fullwidth";
+  "states/_loading";

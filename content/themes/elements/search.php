@@ -18,7 +18,6 @@ if($postsdata):
   echo '<ul class="s-grid-1 m-grid-2 l-grid-4 isotope isotope_masonry">';
   
   foreach($postsdata as $post) {
-    echo $post->url;
     $post_image = $post->photos[0]->original_size->url;
     $post_width = $post->photos[0]->original_size->width;
     $post_height = $post->photos[0]->original_size->height;
@@ -40,7 +39,7 @@ else:
   
   // Page title
   echo '<h1>Blog not found</h1>';
-  echo '<p class="is_white margin-b15">It appears that "' . $tumblr . '" does not exist, try again below!</p>';
+  echo '<p class="error is_white margin-b15">It appears that "' . $tumblr . '" does not exist, try again below!</p>';
   
   // Get form
   include_once( 'form.php' );

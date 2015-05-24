@@ -1,5 +1,7 @@
 ul{
   padding-top: $column-gutter !important;
+  padding-left: $column-gutter / 2;
+  padding-right: $column-gutter / 2;
   
   li{
     margin-bottom: $column-gutter;
