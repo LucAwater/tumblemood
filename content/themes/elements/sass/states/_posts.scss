@@ -1,0 +1,9 @@
+ul li{
+  @include hide( 1s );
+  @include transform( translateY(80px) );
+  
+  &.is-animated{
+    @include show( 1s );
+    @include transform( translateY(0) );
+  }
+}
